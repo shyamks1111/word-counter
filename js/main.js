@@ -32,17 +32,26 @@ function start () {
 	if (interval) {
 		return
 	}
-
+	document.getElementById("text-field").disabled=false;
+	document.getElementById("text-field").setAttribute("placeholder","Type Something here...");
 	interval = setInterval(timer, 1000);
 }
 
 function stop () {
 	clearInterval(interval);
 	interval = null;
+	document.getElementById("text-field").disabled=true;
 }
 
 function reset () {
 	stop();
 	seconds = 0;
 	time_el.innerText = '00:00:00';
+	document.getElementById("text-field").value = "";
+	document.getElementById('total-characters').innerText = '0';
+	document.getElementById('total-characters-ns').innerText = '0';
+	document.getElementById('total-words').innerText =  '0';
+	document.getElementById('total-paragraphs').innerText =  '0';
+	document.getElementById("text-field").setAttribute("placeholder","Press Start to start writing....");
+
 }
